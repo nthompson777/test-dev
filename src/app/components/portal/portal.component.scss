@@ -1,0 +1,53 @@
+// Global Variable Overrides and Styles
+@import '../../../assets/scss/settings';
+
+// Sass Map of our Apps
+$apps: (
+  srw:                $primary-color,
+  data-exchange:      $secondary-color,
+  demurrage:          $tertiary-color,
+  detention:        #B40EB6,
+  equipment-maint:  #916727,
+  web-billing:      #013352,
+  rate-manager:     #1C9AEB,
+  customer-maint:   #34681C,
+  filler:           #E59A49,
+);
+
+@each $app, $bgcolor in $apps {
+  .app-link {
+    width: 140px;
+    height: 135px;
+    margin-top: 30px;
+    display: block;
+    color: $white;
+
+    @include breakpoint(small only) {
+      margin-top: 0;
+    }
+
+    &.#{$app} {
+      background-color: $bgcolor;
+      transition: background-color 0.25s ease-out, color 0.25s ease-out;
+
+      &:hover {
+        background: darken($bgcolor, 15%);  
+      }
+    }
+  }
+}
+
+.promo-area {
+  margin-top: 20px;
+  background-color: #0481d1;
+
+  img {
+    max-width: 66%;
+  }
+}
+
+.portalAppName {
+  margin-top: 7px;
+  width: 140px;
+  font-size: .85em;
+}

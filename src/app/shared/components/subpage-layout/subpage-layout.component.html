@@ -1,0 +1,15 @@
+<app-header></app-header>
+<div class="off-canvas-wrapper">
+  <main class="grid-container-fluid">
+    <div class="grid-x grid-margin-x">
+      <div class="small-12 cell">
+        <div class="grid-x grid-margin-x">
+          <div class="small-12 cell" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+            <router-outlet (activate)="onActivate($event)" #o="outlet"></router-outlet>
+          </div><!-- /cell -->
+        </div><!-- /grid -->
+      </div><!-- /cell -->
+    </div><!-- /grid-x -->
+  </main><!-- /grid-container --> 
+</div><!-- /off-canvas-wrapper -->
+<app-footer></app-footer>

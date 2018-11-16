@@ -1,0 +1,45 @@
+// [THIS APP'S NAME] ONLY Custom Global Styles
+// -------------------------------
+
+body.login {
+  background: image('login_bg01.jpg') no-repeat;
+  background-size: cover;
+}
+
+// Using Angular's ngIf on the form-error blocks/spans instead of injecting inline styles
+.form-error {
+  display: block;
+}
+
+.introjs-helperNumberLayer {
+  background: $primary-color;
+}
+
+.introjs-tooltipbuttons {
+  @extend .btn-cont-alt;
+  font-weight: normal;
+}
+
+.introjs-button {
+  @extend .button;
+  @extend .small;
+  text-shadow: none;
+
+  &.introjs-nextbutton {
+    background: $primary-color;   
+  }
+
+  &.introjs-prevbutton {
+    background: $secondary-color;  
+  }
+
+  &.introjs-skipbutton {
+    @extend .button.warning;
+    background: $warning-color;
+    //background: $white;
+  }
+
+  &.introjs-disabled {
+    @extend .disabled;
+  }
+}

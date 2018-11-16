@@ -1,0 +1,10 @@
+﻿<alert [type]="message.type"
+  *ngIf="message"
+  (onClosed)="onClosed(alert)">
+  {{message.text}}   
+</alert>
+
+<!-- 
+  [ngClass]="{ 'callout alert': message, 'callout success': message.type === 'success', 'callout alert': message.type === 'error' }"
+
+  <div *ngIf="message" [ngClass]="{ 'callout alert': message, 'callout success': message.type === 'success', 'callout alert': message.type === 'error' }">{{message.text}}</div> -->

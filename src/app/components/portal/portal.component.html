@@ -1,0 +1,30 @@
+﻿<div class="grid-x grid-margin-x">
+  <div class="small-6 cell">
+    <h3 class="heading" id="heading1" data-intro="Another step.">QTS Portal</h3>
+  </div>
+  <div class="small-6 cell text-right">
+    <button class="button secondary tiny hollow" (click)="startTour()"><fa-icon [icon]="faMapSigns" [fixedWidth]="true" size="lg"></fa-icon> Take a Tour</button>
+  </div><!-- /cell-->
+</div><!-- /grid -->
+
+<div id="step3" class="grid-x grid-margin-x grid-margin-y">
+  <div class="medium-5 cell promo-area">
+    <img src="../../../assets/img/banners/banner-assets/smartData_activeCars_BG.png">
+  </div><!-- /cell -->
+  <div class="medium-1 cell"></div><!--  Spacer due to For Loop below -->
+
+  <div class="small-6 medium-3 large-2 cell app-block" *ngFor="let app of apps">
+    <a href="{{app.link}}" class="app-link {{app.styleName}}">
+      <fa-icon [icon]="app.icon" [fixedWidth]="true" size="4x" class="align-middle"></fa-icon> 
+    </a>
+    <p class="portalAppName" [innerHtml]="app.fullName"></p>
+  </div><!-- /cell -->  
+</div><!-- /grid -->
+
+<!-- <h3>All registered users:</h3>
+<ul>
+  <li *ngFor="let user of users">
+    {{user.username}} ({{user.firstName}} {{user.lastName}})
+    - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+  </li>
+</ul> -->

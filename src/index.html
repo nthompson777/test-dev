@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>QTS</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+    body, html {
+      height: 100%;
+    }
+    body {
+      background-color: #eceeef;
+    }
+    .app-loading {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    .app-loading .spinner {
+      height: 200px;
+      width: 200px;
+      animation: rotate 2s linear infinite;
+      transform-origin: center center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+    .app-loading .spinner .path {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+      animation: dash 1.5s ease-in-out infinite;
+      stroke-linecap: round;
+      stroke: #ddd;
+    }
+    @keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes dash {
+      0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+      }
+      50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+      }
+      100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+      }
+    }
+  </style>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=zXbBrdGllj">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=zXbBrdGllj">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=zXbBrdGllj">
+  <link rel="manifest" href="/site.webmanifest?v=zXbBrdGllj">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=zXbBrdGllj" color="#03629f">
+  <link rel="shortcut icon" href="/favicon.ico?v=zXbBrdGllj">
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <meta name="theme-color" content="#03629f">
+</head>
+<body>
+  <app-root>
+    <noscript>Please enable JavaScript to view this QTS app.</noscript>
+    <div class="app-loading">
+      <div><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMi4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMTE2LjUgLTIyLjQwMiAzMzYuNTQ4IDM5NS4yMjIiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMTE2LjUgLTIyLjQwMiAzMzYuNTQ4IDM5NS4yMjIiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGcgaWQ9Ikdyb3VwXzEiPg0KCTxwYXRoIGlkPSJSaWdodF90b3Bfb2ZfYm90X2ZyYW1lIiBmaWxsPSIjNTY1NjU2IiBkPSJNMzczLjUsMjg3LjQxNHYtMjcuNTM1YzAtNi4yODQtNS4wOTUtMTEuMzc5LTExLjM3OS0xMS4zNzloLTI2LjkzNg0KCQljMC4wMTgsMC43MDIsMC4wNTQsMS40LDAuMDU0LDIuMTA3YzAsMy42Ni0wLjI2OCw3LjI1Ni0wLjczOCwxMC43ODhMMzczLjUsMjg3LjQxNHoiLz4NCgk8cGF0aCBpZD0iTGVmdF90b3Bfb2ZfYm90X2ZyYW1lIiBmaWxsPSIjNTY1NjU2IiBkPSJNMTcyLjc2MiwyNTAuNjA3YzAtMC43MDcsMC4wMzYtMS40MDUsMC4wNTMtMi4xMDdoLTI2LjkzNw0KCQljLTYuMjg0LDAtMTEuMzc4LDUuMDk0LTExLjM3OCwxMS4zNzh2MjcuNTk5bDM5LjAyMi0yNS45MjVDMTczLjAzNiwyNTcuOTY5LDE3Mi43NjIsMjU0LjMxOCwxNzIuNzYyLDI1MC42MDd6Ii8+DQoJPHBhdGggaWQ9IlNtb2tlIiBmaWxsPSIjNTY1NjU2IiBkPSJNMjQ1LjkwOSwxMDAuODMxYzAuNjg2LDAuMDQxLDEuMzY3LDAuMjA4LDIuMDAxLDAuNTA1YzUuMDktNC4zMzcsMjAuNTgzLTE1LjQxMywyMS42MjItMTUuMjA3DQoJCWMwLjU4MywwLjExNSwyLjE5NSwxLjI1MiwzLjU4MywyLjUyYzkuNjE3LDguODE2LDI2Ljc4NCw4LjIzMywzMy44MjktMS4xNDVsMS43MTItMTAuOTQ4bDguMjE1LTIuNzUzDQoJCWM4LjQyMywyLjM1LDE0LjQ3MSwxNC40NjEsMjAuMjI4LDEyLjI1OWMzLjg4Mi0xLjQ4Myw0LjEyNi0xLjQ2NCw2LjQzMywwLjUwOGM1Ljg5Myw1LjA0MSw4LjIsNi4xMDMsMTcuMDk2LDcuODcxDQoJCWM3Ljg4LDEuNTY2LDkuNTg3LDEuNTk4LDE0LjQwNCwwLjI3NGM1LjM5Mi0xLjQ4MywxNC4zMS03LjIwOCwxNC43NTgtOS40NzVjMC40Ni0yLjMwOCwyLjY4NS0xLjc5OCw4LjEyMiwxLjg2Mw0KCQljNC44OTcsMy4yOTksNi42NzcsMy45NTEsMTUuNTI5LDUuNjk4YzguNzYzLDEuNzMsMTAuNzEsMS44MSwxNS43OTUsMC42NDhjNi45NDUtMS41ODYsMTQuMTc0LTUuOTE3LDE4LjMzMS0xMC45ODUNCgkJYzQuNjg5LTUuNzExLDYuODgxLTE3Ljk2Miw0LjUzMS0yNS4zMTdjLTAuOTY0LTMuMDEyLTMuMjk0LTcuNjgyLTUuMTgzLTEwLjM3OGwtMy40MjktNC44OTlsMS44MjQtOC45ODINCgkJYzIuNzUyLTEzLjU2OSwwLjY3NC0yMi44Ny03LjU2Ny0zMy44MTZjLTguODQyLTExLjc0OS0yMC40MS0xOC4zOTktMzUuOTgtMjAuNjg2Yy0xMi4yMjItMS43OTUtMTkuNzk1LTAuNjI0LTI5LjgyMSw0LjYxDQoJCWMtMTMuMjU5LDYuOTIzLTE5LjA1NSwxNS4wMjEtMjAuOTk2LDI5LjMzM2wtMS4xNTUsOC41MDVsLTUuNjg1LDMuMTI1bC01LjY4NiwzLjEyMmwtNS4zODctMy4wMjENCgkJYy02Ljk5NC0zLjkyMS0xOS45OTUtNi4xMjUtMjYuOTQ5LTQuNTY5Yy04Ljk3NSwyLjAwOC0xNi44MDUsNy43MTktMjAuOTU5LDE1LjI4MmwtMS44ODEsMy40MjdsLTcuNjM1LTEuNTE0DQoJCWMtMTMuOTM1LTIuNzY5LTI2LjU3LDAuMjI1LTM1LjAzNSw4LjI5NWMtNi4zMzQsNi4wNC03Ljk2NCw5LjU0Ny05LjM2NiwyMC4xNDVjLTEuMTYyLDguNzYxLTEuMzc4LDkuMzMzLTQuNCwxMS42ODcNCgkJYy00LjM5MSwzLjQxNi02LjY3LDcuOTkyLTcuNzM0LDE1LjUyMkMyMTguMzgyLDk3LjIyNCwyNDAuNjY3LDk4LjQzOSwyNDUuOTA5LDEwMC44MzF6Ii8+DQoJPGcgaWQ9IkJvdHRvbV9mcmFtZSI+DQoJCTxwYXRoIGZpbGw9IiM1NjU2NTYiIGQ9Ik0zOTEuMTM4LDMyNi4wMThjLTAuNzIyLTIuNzA4LTIuNTAxLTUuMTIyLTUuMDcxLTYuNzJsLTU3LjUwOS0zNS41NTENCgkJCWMtMTIuNDY4LDI4Ljg3NS00MS4xNDYsNDkuMDg1LTc0LjU0Niw0OS4wODVjLTMzLjQwNCwwLTYyLjA4Ni0yMC4yMTYtNzQuNTUxLTQ5LjA5N2wtNTcuNTI4LDM1LjU2Mw0KCQkJYy0yLjU3LDEuNTk4LTQuMzQ5LDQuMDEyLTUuMDcyLDYuNzJsLTAuMzYyLTAuMDIzdjM2LjA2M3Y3LjU0OXYyLjg5NWgxMzYuMzZsMC42NCwwLjE2NVYzNzIuNWg5My4zOTVsNDQuNjA1LDAuMzE5VjM3Mi41di0xMC40NDMNCgkJCXYtMzYuMDYzTDM5MS4xMzgsMzI2LjAxOHogTTE3NC42MTIsMzQxLjcwOWMtNS40NjksMC05LjkwMi00LjQzNC05LjkwMi05LjkwMmMwLTUuNDY4LDQuNDMzLTkuOTAxLDkuOTAyLTkuOTAxDQoJCQljNS40NjksMCw5LjkwMiw0LjQzNCw5LjkwMiw5LjkwMUMxODQuNTE0LDMzNy4yNzUsMTgwLjA4MSwzNDEuNzA5LDE3NC42MTIsMzQxLjcwOXogTTMzNC4xODUsMzQyLjI0Ng0KCQkJYy01LjQ2OSwwLTkuOTAyLTQuNDM0LTkuOTAyLTkuOTAyYzAtNS40NjgsNC40MzQtOS45MDEsOS45MDItOS45MDFjNS40NjksMCw5LjkwMSw0LjQzNCw5LjkwMSw5LjkwMQ0KCQkJQzM0NC4wODcsMzM3LjgxMywzMzkuNjU0LDM0Mi4yNDYsMzM0LjE4NSwzNDIuMjQ2eiIvPg0KCTwvZz4NCgk8cGF0aCBpZD0iTWlkZGxlX0NpcmNsZSIgZmlsbD0iIzAzNjI5RiIgZD0iTTMxNy44NzMsMjUxLjQ2NWMwLDM1LjMwMS0yOC42MTUsNjMuOTE3LTYzLjkxNiw2My45MTcNCgkJYy0zNS4zLDAtNjMuOTE3LTI4LjYxNi02My45MTctNjMuOTE3YzAtMzUuMywyOC42MTctNjMuOTE2LDYzLjkxNy02My45MTZDMjg5LjI1OCwxODcuNTQ4LDMxNy44NzMsMjE2LjE2NSwzMTcuODczLDI1MS40NjV6Ii8+DQo8L2c+DQo8ZyBpZD0iTGF5ZXJfNCI+DQoJPGc+DQoJCTxnPg0KCQkJPHBhdGggZmlsbD0iIzAzNjI5RiIgZD0iTTE5Mi42OTIsMjAwLjY5MmMxMy45MjUtMTguNTU2LDM2LjEwNC0zMC41NjIsNjEuMDktMzAuNTYyYzI0LjI4LDAsNDUuODk2LDExLjM1LDU5Ljg3NywyOS4wMTh2LTIwLjMwNA0KCQkJCWMtMTQuNjM5LTE2LjY0NC0zNi4wNzgtMjcuMTYxLTU5Ljk4Ni0yNy4xNjFjLTI0LjQ1NCwwLTQ2LjMyOCwxMS02MC45OCwyOC4zMDlWMjAwLjY5MnoiLz4NCgkJPC9nPg0KCTwvZz4NCjwvZz4NCjxnIGlkPSJTbW9rZV9TdGFjayI+DQoJPGc+DQoJCTxnPg0KCQkJPHBhdGggZmlsbD0iIzAzNjI5RiIgZD0iTTE5OC44NzUsMTM1LjAwNGg2LjU0OHYxMi4yNThjMTMuMDQzLTcuMzU2LDI5LjU1Ni0xMS43NjMsNDcuNTMzLTExLjc2Mw0KCQkJCWMxNy45NzgsMCwzNC40OTIsNC40MDgsNDcuNTM2LDExLjc2NHYtMTIuMjU5aDYuNTQ3YzYuMzA3LDAsMTEuNDE4LTUuMDk0LDExLjQxOC0xMS4zNzdWODcuNjQxDQoJCQkJYzAtNi4yODQtNS4xMTEtMTEuMzc4LTExLjQxOC0xMS4zNzhIMTk4Ljg3NWMtNi4zMDYsMC0xMS40MTgsNS4wOTQtMTEuNDE4LDExLjM3OHYzNS45ODcNCgkJCQlDMTg3LjQ1NywxMjkuOTEsMTkyLjU3LDEzNS4wMDQsMTk4Ljg3NSwxMzUuMDA0eiIvPg0KCQk8L2c+DQoJPC9nPg0KPC9nPg0KPC9zdmc+DQo=" alt="QTS Train icon that is a deep blue with grey smoke coming out of the engine graphic." style="width:80px; height:80px;"></div>
+      <svg class="spinner" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
+      </svg>
+    </div>
+  </app-root>
+</body>
+</html>

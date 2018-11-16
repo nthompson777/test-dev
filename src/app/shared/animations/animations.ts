@@ -1,0 +1,29 @@
+import {
+  transition,
+  trigger,
+  query,
+  style,
+  animate,
+  group,
+  animateChild
+} from '@angular/animations';
+
+export const fadeAnimation = trigger('fadeAnimation', [
+  transition('* => *', [
+    query(
+      ':enter',
+      [style({ opacity: 0 }), style({ position: 'absolute' })],
+      { optional: true }
+    ),
+    query(
+      ':leave',
+       [style({ opacity: 1 }), animate('0.2s', style({ opacity: 0 })), style({ position: 'absolute' })],
+      { optional: true }
+    ),
+    query(
+      ':enter',
+      [style({ opacity: 0 }), animate('0.4s', style({ opacity: 1 })), style({ position: 'relative' })],
+      { optional: true }
+    )
+  ])
+]);

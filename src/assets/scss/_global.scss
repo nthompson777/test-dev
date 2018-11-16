@@ -1,0 +1,519 @@
+// Global Overrides and Added Styles
+
+// Asset HelperURL builder
+// --------------------------------
+/// @access private
+/// @param {String} $type - Asset type, matching folder name
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the asset
+@function asset($type, $file) {
+  @return url($asset-base-path + '/' + $type + '/' + $file);
+}
+
+// Image asset helper
+// --------------------------------
+/// @access public
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the image
+/// @require {function} asset
+@function image($file) {
+  @return asset('img', $file);
+}
+
+// Font asset helper
+// --------------------------------
+/// @access public
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the font
+/// @require {function} asset
+@function font($file) {
+  @return asset('fonts', $file);
+}
+
+
+// Scaffolding
+// -------------------------------
+
+footer {
+	background-color: $footer-background;
+	color: $footer-color;
+	font-size: .85em;
+	text-align: center;
+	padding: 25px 0 10px;
+
+	a,
+	a:hover,
+	a:focus {
+		color: $white;
+		text-decoration: underline;
+	}
+}
+
+.off-canvas-wrapper {
+	// Sticky Footer (stuck to bottom of viewport no matter the height of body content)
+	min-height: calc(100vh - 72px); //72 // 100vh minus the height of the footer (only for static footer height)
+}
+
+main.grid-container-fluid,
+.panel-container {
+	background-color: $white;
+	border: 1px solid transparent;
+	border-radius: $global-radius;
+	box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	padding: 20px 15px;
+	margin: 1rem 10px;
+	display: block;
+	min-height: 500px;
+
+	@include breakpoint(small only) {
+		margin-top: 30px;
+		padding: 20px 10px;
+		margin: 20px 0;
+	}
+}
+
+.panel-container {
+	padding-top: 25px;
+}
+
+// Additional Style to Foundation's Flexbox align
+.align-middle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  height: 100%;
+}
+
+section {
+	margin: 0 0 30px;
+}
+
+.top-bar { 
+	height: 60px;
+	max-height: 60px;
+	color: $topbar-color;
+  height: auto;
+	// margin-bottom: $topbar-bottom-margin;
+	border-bottom: solid 1px #efefef;
+	box-shadow: 0 25px 20px -29px rgba(0,0,0,0.35);
+	width: 100%;
+	
+	.mainlogo {
+		float: left;
+		background: image('qts_logo.png') no-repeat;
+		background-size: contain;
+		width: 104px;
+    height: 35px;
+		margin: -2px 15px 0 15px;
+
+		@include breakpoint(small only) {
+			margin-left: 0;
+		}
+	}
+
+	.appName {
+		font-size: $appName-fontSize;
+		font-family: $appName-font-family;
+		letter-spacing: $appName-letter-spacing;
+		color: $appName-fontColor;
+
+		@include breakpoint(small only) {
+			font-size: $appName-fontSize - .3em;
+			line-height: 1.9;
+		}
+	}
+}
+
+.menu .active a,
+a.active {
+	color: $secondary-color; // $tertiary-color
+	background: none;
+}
+
+.menu > li > a {
+	color: $topbar-color;
+	transition: color .4s ease-out;
+	font-size: $menu-item-font-size;
+
+	&:hover {
+		color: $topbar-color-hover;
+	}
+}
+
+.title-bar-title {
+	padding-left: 10px;
+
+	@include breakpoint(small only) {
+		font-size: 1.3em;
+	}
+}
+
+.is-dropdown-submenu {
+	z-index: 5;  // Set to >4 for Ag-Grid
+}
+
+
+// Badges
+// -------------------------------
+.badge:empty {
+	display: none;
+}
+
+
+// Form Styles
+// -------------------------------
+
+// Round out the input box when using an '.input-group'
+.input-group {
+	> .input-group-label + .input-group-field,
+	> .input-group-field + .input-group-label {
+		border-radius: 0 $global-radius $global-radius 0;
+	}
+
+	.input-group-field {
+		// PLEASE DON'T CHANGE THIS! This specific height is necessary.
+		height: 35px; // unify the height with standard inputs
+	}
+}
+
+.help-text {
+	margin-bottom: 5px;
+}
+
+.required:after {
+	content: "*";
+	font-size: inherit;
+	color: $required-field-color;
+	margin: 3px;
+}
+
+
+// Sticky Containers and Off-Canvas
+// -------------------------------
+.sticky,
+.off-canvas {
+	max-height: 100vh;
+	overflow-y: auto;
+}
+
+.off-canvas {
+	
+	li {
+
+		&.active > a {
+			color: $white;
+			background: $footer-background;
+			pointer-events: none;
+		}
+
+		> a {
+			padding: 0.7rem 0 .7rem 2rem;
+			transition: color .4s ease-out;
+			
+			&:hover {
+				color: $secondary-color;
+
+				&:after{
+					width: 90%;
+					left: 0;
+					background: $secondary-color;
+				}
+			}
+		}
+
+		&.main-title {
+			padding: 2.2rem .6rem .7rem 1rem;
+			margin-bottom: 15px;
+			color: $white;
+			font-size: 1.5em;
+			background-color: $primary-color;
+			box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+		}
+
+		&.title {
+			font-size: $offcanvas-title-size;
+			color: $offcanvas-title-color;
+			margin: 10px 0 10px 20px;
+		}
+	}
+
+	.close-button {
+		color: $white;
+
+		&:hover {
+			color: $medium-gray;
+		}
+	}
+}
+
+
+// Accessibility
+// -------------------------------
+// Suppress focus ring on form controls for mouse users w/ WhatInput Plugin
+[data-whatintent="mouse"] *:focus {
+	outline: none;
+}
+
+
+// Tooltips for Block Elements
+// -------------------------------
+.tooltip {
+	opacity: $tooltip-opacity;
+}
+
+.has-tip.icon {
+	border-bottom: none;
+	cursor: pointer;
+}
+
+label .info-tooltip,
+.info-tooltip {
+
+	&:after {
+		display: inline-block;
+		font-size: 11px;
+		background: $primary-color;
+		border-radius: 50%;
+		width: 16px;
+		height: 16px;
+		color: #fefefe;
+		content: '?';
+		text-decoration: none;
+		padding: 0px 5px;
+		position: relative;
+		top: -2px;
+	}
+}
+
+label .info-tooltip.has-tip:after {
+	padding: 0 0 10px 6px;
+	font-size: 10px;
+}
+
+
+// Sub Header Font Colors (for differentiating between other headers)
+// -------------------------------
+h2, h3 {
+	color: $primary-color;
+}
+
+
+// Hamburger Menu
+// -------------------------------
+.hamburger .line {
+	width: 25px;
+	height: 3px;
+	background-color: $dark-gray;
+	display: block;
+	margin: 5px auto;
+	transition: all 0.3s ease-in-out;
+}
+
+.hamburger {
+	float: left;
+	margin: 5px 25px 0 10px;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+
+// Tab Styles
+// -------------------------------
+// Make Tabs Responsive and Scrollable
+.tabs {
+	overflow-x: auto;
+	overflow-y: hidden;
+	white-space: nowrap;
+	border-bottom: none;
+}
+
+li.tabs-title {
+	background: $light-gray;
+	border-right: solid 1px #ddd;
+	border-bottom: solid 1px $light-gray;
+	// Make Tabs Responsive and Scrollable
+	float: none;
+	display: inline-block;
+}
+
+.tabs-title.is-active,
+.tabs-title > a[aria-selected='true'] {
+	border-bottom: 2px solid $white;
+	margin-bottom: -2px;
+	box-shadow: -10px 0px 50px -20px rgba(10, 10, 10, 0.5);
+}
+
+
+// Button Styles & Button Containers
+// -------------------------------
+.button.tertiary {
+	color: $white;
+
+	&:hover,
+	&:focus {
+		color: $white;
+	}
+}
+
+.btn-cont {
+
+	button,
+	.button {
+		margin-top: 20px;
+		margin-right: 15px;
+		margin-bottom: 0;
+		display: inline-block;
+	}
+
+	&.align-inline button,
+	&.align-inline .button {
+		margin-top: 5px;
+		margin-bottom: 5px;
+		display: inline-block;
+
+		// Small ONLY
+		@media screen and (max-width: 640px) {
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.btn-cont-alt {
+	float: right;
+
+	// Small ONLY
+	@media screen and (max-width: 640px) {
+		float: left;
+	}
+
+	.button,
+	button {
+		display: inline-block;
+		margin-top: 20px;
+		margin-right: 15px;
+		
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	&.align-inline .button {
+		margin-top: 5px;
+		margin-bottom: 5px;
+		margin-right: 15px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		// Small ONLY
+		@media screen and (max-width: 640px) {
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.close-button-alt {
+	font-size: 2em;
+	line-height: $closebutton-lineheight;
+	color: $closebutton-color;
+	cursor: pointer;
+	float: right;
+	margin-bottom: 0;
+	transition: all .2s ease;
+
+	&:hover {
+		color: $closebutton-color-hover;
+		font-size: 2.45em;
+		margin-bottom: 0;
+	}
+}
+
+
+// Ag-Grid Global Styles
+// -------------------------------
+.is-dropdown-submenu {
+	z-index: 5;  // Set to >4 for Ag-Grid
+}
+
+.ag-column-hover {
+	background-color: $ag-column-hover;
+}
+
+// Default Height for Ag-Grid Chosen Theme
+.ag-theme-balham {
+	height: 400px; 
+}
+
+
+// Color Helpers
+// -------------------------------
+
+.alert-color {
+	color: $alert-color;
+}
+
+.success-color {
+	color: $success-color;
+}
+
+.warning-color {
+	color: $warning-color;
+}
+
+
+// Prevent FOUC for our Mobile Menu
+// --------------------------------
+
+@include breakpoint(medium) {
+	.title-bar {
+		display: none;
+	}
+}
+
+
+// Font Icon (SVGs) Styles
+// --------------------------------
+// To give color to icons that have inherited body text color  
+.svg-inline--fa.color,
+.color.ng-fa-icon {
+	color: $fonticon-color;  
+} 
+
+// Night Mode Theme
+.night-mode {
+	&:root { 
+		background-color: #fefefe;
+		filter: invert(100%);
+	}
+	
+	* { 
+		background-color: inherit;
+	}
+	
+	img:not([src*=".svg"]), video {  
+		filter: invert(100%);
+	}
+}
+
+// Webfonts
+// --------------------------------
+@font-face {
+	font-family: 'robotoregular';
+	src: 	font('Roboto-Regular-webfont.eot?') format('eot'),
+				font('Roboto-Regular-webfont.woff') format('woff'),
+				font('Roboto-Regular-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'robotomedium';
+	src: 	font('Roboto-Medium-webfont.eot?') format('eot'),
+				font('Roboto-Medium-webfont.woff') format('woff'),
+				font('Roboto-Medium-webfont.ttf') format('truetype');
+	font-weight: bold;
+	font-style: bold;
+}

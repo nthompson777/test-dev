@@ -1,0 +1,107 @@
+﻿<div class="grid-x align-middle loginBG">
+  <div class="small-11 medium-6 large-4 xlarge-3 cell login-box">
+    <div class="header-circle">
+      <fa-icon [icon]="faUserLock" size="2x"></fa-icon>
+    </div>
+    <h3 class="header">QTS Client Login</h3>
+    <app-callout-message></app-callout-message>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
+      <label for="username" [ngClass]="{ 'is-invalid-label': submitted && fLogin.username.errors }">User ID</label>
+      <input id="username" 
+        type="text" 
+        formControlName="username" 
+        [ngClass]="{ 'is-invalid-input': submitted && fLogin.username.errors }"
+        placeholder="User ID Here" 
+        aria-errormessage="usernameError" />
+      <span *ngIf="submitted && fLogin.username.errors">
+        <span class="form-error"
+          id="usernameError" 
+          *ngIf="fLogin.username.errors.required">
+          User ID is required
+        </span>
+      </span>
+      <label for="password" [ngClass]="{ 'is-invalid-label': submitted && fLogin.password.errors }">Password</label>
+      <input id="password" 
+        type="password" 
+        formControlName="password" 
+        [ngClass]="{ 'is-invalid-input': submitted && fLogin.password.errors }" 
+        placeholder="Password" />
+      <span *ngIf="submitted && fLogin.password.errors">
+        <span class="form-error" 
+          id="usernameError" 
+          *ngIf="fLogin.password.errors.required">
+          Password is required
+        </span>
+      </span>
+      <div class="text-right">
+        <small><a (click)="openIdModal(forgotId)"> Forgot User ID?</a> &nbsp; | &nbsp; <a (click)="openPassModal(forgotPass)">Forgot Password?</a></small>
+      </div>
+      <div class="btn-cont-alt">
+        <button [disabled]="loading" class="button secondary">Login <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /></button>
+        <button routerLink="/register" class="button primary hollow">Register</button>
+      </div>
+    </form>
+  </div><!-- /cell -->
+</div><!-- /grid -->
+
+<!-- Forgot User ID Modal -->
+<ng-template #forgotId>
+  <h4>Recover Your User ID</h4>
+  <button class="close-button" (click)="modalRef.hide()" aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <hr>
+  <form [formGroup]="recoverUserIDForm" (ngSubmit)="onSubmitRecoverUserID()">
+    <label for="recoverUserID">You can recover your QTS User ID using the email address associated with your account: </label><br>
+    <input id="recoverUserID" 
+        type="text"  
+        [ngClass]="{ 'is-invalid-input': submitted && fRecover.recoverUserID.errors }" 
+        placeholder="Email Address" />
+    <span *ngIf="submitted && fRecover.recoverUserID.errors">
+      <span class="form-error"
+        id="recoverUserIDError" 
+        *ngIf="fRecover.recoverUserID.errors.required">
+        Email address is required
+      </span>
+    </span>
+  </form>
+
+  <div class="btn-cont-alt">
+    <button class="button primary" (click)="modalRef.hide()" aria-label="Close this window" type="button">
+      Cancel
+    </button>
+    <button [disabled]="loading" class="button secondary" aria-label="Submit to recover your User ID" type="button">
+      Submit <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+    </button>
+  </div>
+  <!-- <p>
+    <small>For additional assistance please contact Support:<br>
+    Email at password@qts.com <br> 
+    Phone at 1-800-443-2599 or 804-550-5430.<br></small>
+  </p> -->
+</ng-template>
+
+<!-- Forgot User Password Modal -->
+<ng-template #forgotPass>
+  <h4>Recover Your Password</h4>
+  <button class="close-button" (click)="modalRef.hide()" aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <hr>
+  <label>You can recover your QTS Password using the email address or User ID associated with your account: </label><br>
+  <input type="text" placeholder="Enter your email or User ID">
+
+  <div class="btn-cont-alt">
+    <button class="button primary" (click)="modalRef.hide()" aria-label="Close this window" type="button">
+      Cancel
+    </button>
+    <button class="button secondary" aria-label="Submit to recover your Password" type="button">
+      Submit
+    </button>
+  </div> 
+    <!-- <p>
+      <small>For additional assistance please contact Support:<br>
+      Email at password@qts.com <br> 
+      Phone at 1-800-443-2599 or 804-550-5430.<br></small>
+    </p> -->  
+</ng-template>
