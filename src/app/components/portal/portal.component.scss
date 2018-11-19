@@ -38,11 +38,22 @@ $apps: (
 }
 
 .promo-area {
-  margin-top: 20px;
-  background-color: #0481d1;
+  margin-top: 25px;
+  background-color: $primary-color;
 
   img {
-    max-width: 66%;
+    max-width: 50%;
+    margin: 50px 30px 0 0;
+    float: left;
+  }
+
+  div {
+    color: $white;
+    padding: 50px 10px 0 0;
+
+    h3 {
+      color: $white;
+    }
   }
 }
 
@@ -50,4 +61,6 @@ $apps: (
   margin-top: 7px;
   width: 140px;
   font-size: .85em;
+  display: block;
+  color: $body-font-color;
 }

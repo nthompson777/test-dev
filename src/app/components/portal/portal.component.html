@@ -10,14 +10,19 @@
 <div id="step3" class="grid-x grid-margin-x grid-margin-y">
   <div class="medium-5 cell promo-area">
     <img src="../../../assets/img/banners/banner-assets/smartData_activeCars_BG.png">
+    <div>
+      <h3>SmartData<sup>&trade;</sup></h3>
+      <p>See a quick overview on what matters most for your business.</p>
+      <button class="button secondary tiny">Learn More</button>
+    </div>
   </div><!-- /cell -->
-  <div class="medium-1 cell"></div><!--  Spacer due to For Loop below -->
+  <div class="medium-1 show-for-medium cell"></div><!--  Spacer due to For Loop below -->
 
   <div class="small-6 medium-3 large-2 cell app-block" *ngFor="let app of apps">
     <a href="{{app.link}}" class="app-link {{app.styleName}}">
       <fa-icon [icon]="app.icon" [fixedWidth]="true" size="4x" class="align-middle"></fa-icon> 
     </a>
-    <p class="portalAppName" [innerHtml]="app.fullName"></p>
+    <a href="{{app.link}}" class="portalAppName" [innerHtml]="app.fullName"></a>
   </div><!-- /cell -->  
 </div><!-- /grid -->
 
