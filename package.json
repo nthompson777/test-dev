@@ -31,7 +31,7 @@
     "core-js": "^2.5.4",
     "foundation-sites": "^6.5.0",
     "intro.js": "^2.9.3",
-    "ng-font-qts": "^1.0.2",
+    "ng-font-qts": "^1.0.3",
     "ngx-foundation": "^1.0.6",
     "rxjs": "~6.3.3",
     "what-input": "^5.1.2",

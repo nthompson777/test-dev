@@ -24,7 +24,7 @@ export class PortalComponent implements OnInit, OnDestroy {
         {
             link: '/test/blah',
             styleName: 'srw',
-            icon: ['fqts', 'train08'],
+            icon: ['fas', 'train'], // 'fqts', 'train08'
             fullName: 'SmartRail Web',
             isSubscribed: true,
         },
@@ -45,14 +45,14 @@ export class PortalComponent implements OnInit, OnDestroy {
         {
             link: '/test/blah',
             styleName: 'detention',
-            icon: ['fqts', 'tanker-money'],
+            icon: ['fas', 'box-usd'], // 'fqts', 'tanker-money'
             fullName: 'Detention',
             isSubscribed: true,
         },
         {
             link: '/test/blah',
             styleName: 'equipment-maint',
-            icon: ['fqts', 'railcar-maintenance'],
+            icon: ['fas', 'wrench'], // 'fqts', 'railcar-maintenance'
             fullName: 'Equipment Maintenance Manager',
             isSubscribed: true,
         },

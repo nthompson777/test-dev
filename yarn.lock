@@ -4783,10 +4783,10 @@ neo-async@^2.5.0:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.0.tgz#b9d15e4d71c6762908654b5183ed38b753340835"
   integrity sha512-MFh0d/Wa7vkKO3Y3LlacqAEeHK0mckVqzDieUKTT+KGxi+zIpeVsFxymkIiRpbpDziHc290Xr9A1O4Om7otoRA==
 
-ng-font-qts@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/ng-font-qts/-/ng-font-qts-1.0.2.tgz#ced093d4bc4e84d0bdb2686c806fce132ea9e24b"
-  integrity sha512-9zg86Pz2PK9/Vbd3xt1ILsmRZlbIPXl//8HgFsWUt9iXjBSk8ofE2f18R4N7g23111EYqIxPe7xZX3h9SQAX9g==
+ng-font-qts@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/ng-font-qts/-/ng-font-qts-1.0.3.tgz#d7f4e112ce5c598b4d175172cf02c35e1baf5693"
+  integrity sha512-saaDjAEjX0bxJqD27e3Vk1hM17sPNl0VrIUIm/uh7D2J/vIaUV43RQghqAUp6JTtfiEVQnjHO6KZtUR0oU2N8A==
 
 ngx-foundation@^1.0.6:
   version "1.0.6"
