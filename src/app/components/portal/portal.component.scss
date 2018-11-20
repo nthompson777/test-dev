@@ -41,13 +41,28 @@ $apps: (
   margin-top: 25px;
   background-color: $primary-color;
 
+  @include breakpoint(small only) {
+    margin-top: 5px;
+  }
+
   img {
-    margin: 40px 0 0;
+    margin: 40px auto 0;
+    display: block;
+
+    @include breakpoint(small only) {
+      max-width: 60%;
+      margin: 0 auto;
+    }
   }
 
   .promo-text {
     color: $white;
     padding: 40px 10px 0 0;
+
+    @include breakpoint(small only) {
+      text-align: center;
+      padding: 20px 30px 0;
+    }
 
     h3 {
       color: $white;

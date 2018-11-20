@@ -2,6 +2,7 @@
 
 import { SubpageLayoutComponent } from './shared/components/subpage-layout/subpage-layout.component';
 import { LoginComponent } from './components/login/login.component';
+import { MyaccountComponent } from './components/myaccount/myaccount.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -25,6 +26,11 @@ const appRoutes: Routes = [
       {
         path: 'portal',
         loadChildren: './modules/portal/portal.module#PortalModule',
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'myaccount',
+        component: MyaccountComponent,
         canActivate: [AuthGuard]
       },
     ]

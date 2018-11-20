@@ -123,6 +123,7 @@ export class PortalComponent implements OnInit, OnDestroy {
         });
     }
 
+    // Intro.js App Tour
     startTour() {
         const IntroJs = require('../../../../node_modules/intro.js/intro.js');
         const intro = IntroJs();
@@ -134,21 +135,17 @@ export class PortalComponent implements OnInit, OnDestroy {
                     intro: '<h5>Welcome</h5> Welcome to your new Portal. We&apos;ll walk you through all of the new features.',
                     position: 'left'
                 }, {
-                    element: '#powertools',
-                    intro: 'Power Tools text here.',
+                    element: '#promoarea',
+                    intro: 'Text here for the promo area.',
                     position: 'left'
                 }, {
                     element: '#heading1',
-                    intro: 'Heading 1',
+                    intro: 'Description here for this id block.',
                     position: 'left'
                 }, {
                     element: '#heading2',
-                    intro: 'Heading 2',
+                    intro: 'Self-contained area for the tour that doesn&apos;t belong to an id',
                     position: 'left'
-                }, {
-                    element: document.querySelectorAll('.heading')[2],
-                    intro: 'Heading 3.',
-                    position: 'right'
                 }
             ]
         });

@@ -20,7 +20,8 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { NgxFoundationModule } from './shared/ngx-foundation.module';
 import { MessageService } from './services/message.service';
-import { DialogBodyComponent } from './shared/modal/dialog-body/dialog-body.component';
+import { DialogBodyComponent } from './shared/modal/dialog-body/dialog-body.component';;
+import { MyaccountComponent } from './components/myaccount/myaccount.component'
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { DialogBodyComponent } from './shared/modal/dialog-body/dialog-body.comp
         RegisterComponent,
         HeaderComponent,
         FooterComponent,
-        DialogBodyComponent
+        DialogBodyComponent,
+        MyaccountComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
