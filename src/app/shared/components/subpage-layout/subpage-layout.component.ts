@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef, Renderer } from '@angular/core';
 import { fadeAnimation } from '../../animations/animations';
 import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
@@ -11,9 +11,16 @@ import { isPlatformBrowser } from '@angular/common';
 })
 
 export class SubpageLayoutComponent {
+  @ViewChild('main') main: ElementRef;
+
   constructor(
+    private renderer: Renderer,
     @Inject(PLATFORM_ID) private platformId: Object,
     @Inject(APP_ID) private appId: string) {}
+
+  skipLink() {
+    this.renderer.invokeElementMethod(this.main.nativeElement, 'focus');
+  }
 
   // Scroll To Top When Route Changes
   onActivate(event: any) {

@@ -1,3 +1,46 @@
-<p>
-  myaccount works!
-</p>
+<h3>My Account</h3>
+<!-- <app-callout-message></app-callout-message> -->
+
+<div class="grid-x grid-margin-x">
+  <div class="medium-4 large-3 cell">
+    <label for="firstname">First Name</label>
+    <input id="firstname" 
+      type="text" 
+      [value]="currentUser.firstName" 
+      aria-errormessage="firstnameError"
+      disabled />
+  </div><!-- /cell -->
+
+  <div class="medium-4 large-3 cell">
+    <label for="lastname">Last Name</label>
+    <input id="lastname" 
+      type="text" 
+      [value]="currentUser.lastName" 
+      aria-errormessage="lastnameError"
+      disabled />
+  </div><!-- /cell -->
+</div><!-- /grid -->
+
+<div class="grid-x grid-margin-x">
+  <div class="medium-4 large-3 cell">
+    <label for="username">User ID</label>
+    <input id="username" 
+      type="text" 
+      [value]="currentUser.username" 
+      aria-errormessage="usernameError"
+      disabled />
+  </div><!-- /cell -->
+
+  <div class="medium-4 large-3 cell">
+    <label for="password">Current Password</label>
+    <input id="password" 
+      type="password" 
+      [value]="currentUser.password" 
+      aria-errormessage="passwordError"
+      disabled />
+  </div><!-- /cell -->
+</div><!-- /grid -->
+
+{{currentUser.username}} ({{currentUser.firstName}} {{currentUser.lastName}})
+   <!--  - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a> -->
+
