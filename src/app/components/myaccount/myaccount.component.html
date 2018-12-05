@@ -1,46 +1,162 @@
 <h3>My Account</h3>
-<!-- <app-callout-message></app-callout-message> -->
+<app-callout-message></app-callout-message>
 
 <div class="grid-x grid-margin-x">
-  <div class="medium-4 large-3 cell">
-    <label for="firstname">First Name</label>
-    <input id="firstname" 
-      type="text" 
-      [value]="currentUser.firstName" 
-      aria-errormessage="firstnameError"
-      disabled />
-  </div><!-- /cell -->
+  <div class="medium-6 cell">
+    <h4>Basic Information</h4>
+    <form (ngSubmit)="onSubmit()" #basicInfoForm="ngForm">
+      <div class="grid-x">
+        <div class="large-9 cell">
+          <label for="username" class="required">User ID</label>
+          <input id="username"
+            required
+            [value]="currentUser.username"
+            [(ngModel)]="currentUser.username" 
+            name="username"
+            #username="ngModel" 
+            type="text" 
+            aria-errormessage="usernameError" />
+          <div [hidden]="username.valid || username.pristine"
+            class="form-error"
+            [ngClass]="{ 'is-invalid-input': submitted && fLogin.username.errors }"
+            id="usernameError">
+            User ID is required
+          </div>
+        </div><!-- /cell -->
 
-  <div class="medium-4 large-3 cell">
-    <label for="lastname">Last Name</label>
-    <input id="lastname" 
-      type="text" 
-      [value]="currentUser.lastName" 
-      aria-errormessage="lastnameError"
-      disabled />
-  </div><!-- /cell -->
-</div><!-- /grid -->
+        <div class="large-9 cell">
+          <label for="firstName" class="required">First Name</label>
+          <input id="firstName"
+            required 
+            name="firstName"
+            #firstName="ngModel"
+            type="text"
+            [value]="currentUser.firstName" 
+            [(ngModel)]="currentUser.firstName" 
+            aria-errormessage="firstnameError" />
+          <div [hidden]="firstName.valid || firstName.pristine"
+            class="form-error"
+            id="firstNameError">
+            First Name is required
+          </div>
+        </div><!-- /cell -->
 
-<div class="grid-x grid-margin-x">
-  <div class="medium-4 large-3 cell">
-    <label for="username">User ID</label>
-    <input id="username" 
-      type="text" 
-      [value]="currentUser.username" 
-      aria-errormessage="usernameError"
-      disabled />
-  </div><!-- /cell -->
+        <div class="large-9 cell">
+          <label for="lastName" class="required">Last Name</label>
+          <input id="lastName"
+            name="lastName"
+            #lastName="ngModel" 
+            required
+            type="text" 
+            [value]="currentUser.lastName"
+            [(ngModel)]="currentUser.lastName" 
+            aria-errormessage="lastnameError" />
+          <div [hidden]="lastName.valid || lastName.pristine"
+            class="form-error"
+            id="lastNameError">
+            Last Name is required
+          </div>
+        </div><!-- /cell -->
 
-  <div class="medium-4 large-3 cell">
-    <label for="password">Current Password</label>
-    <input id="password" 
-      type="password" 
-      [value]="currentUser.password" 
-      aria-errormessage="passwordError"
-      disabled />
-  </div><!-- /cell -->
-</div><!-- /grid -->
+        <div class="large-9 cell">
+          <label for="emailAddress" class="required">Email Address</label>
+          <input id="emailAddress"
+            name="emailAddress"
+            #emailAddress="ngModel" 
+            required
+            type="email" 
+            [value]="currentUser.emailAddress"
+            [(ngModel)]="currentUser.emailAddress" 
+            aria-errormessage="emailAddressError" />
+          <div [hidden]="emailAddress.valid || emailAddress.pristine"
+            class="form-error"
+            id="emailAddressError">
+            Email Address is required
+          </div>
+        </div><!-- /cell -->
+      </div><!-- /grid -->
+      <div class="btn-cont">
+        <button class="button secondary" type="submit" [disabled]="!basicInfoForm.form.valid">Update</button>
+        <p>
+          Debugging: {{currentUser.username}} {{currentUser.firstName}} {{currentUser.lastName}} {{currentUser.emailAddress}}
+        </p>
+      </div>
+    </form>
+  </div><!-- /Parent cell-->
 
-{{currentUser.username}} ({{currentUser.firstName}} {{currentUser.lastName}})
-   <!--  - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a> -->
+  <div class="medium-6 cell">
+    <h4>Change My Password</h4>
+    <form (ngSubmit)="onSubmit()" #changePasswordForm="ngForm">
+    <div class="grid-x">
+      <div class="large-9 cell">
+        <label for="currentPassword">Verify Current Password</label>
+        <input id="currentPassword"
+          required 
+          name="currentPassword"
+          #currentPassword="ngModel"
+          [(ngModel)]="currentUser.currentPassword" 
+          type="password" 
+          aria-errormessage="currentPasswordError" />
+        <div [hidden]="currentPassword.valid || currentPassword.pristine"
+          class="form-error"
+          id="currentPasswordError">
+          Password is incorrect
+        </div>
+      </div><!-- /cell -->
 
+      <div class="large-9 cell">
+        <label for="newPassword">New Password</label>
+        <input id="newPassword"
+          required 
+          name="newPassword"
+          #newPassword="ngModel"
+          [(ngModel)]="currentUser.newPassword" 
+          type="password"  
+          aria-errormessage="newPasswordError" />
+        <div [hidden]="newPassword.valid || newPassword.pristine"
+          class="form-error"
+          id="newPasswordError">
+          Passwords must match.
+        </div>
+
+        <div class="grid-x">
+          <div class="medium-6 cell">
+            <ul class="help-text">
+              <li>One uppercase character</li>  
+              <li>One lowercase character</li>
+              <li>One number</li>
+            </ul>
+          </div>
+          <div class="medium-6 cell">
+            <ul class="help-text">
+              <li>One special character</li>
+              <li>8 characters minimum</li>
+            </ul>
+          </div>
+        </div>
+              
+      </div><!-- /cell -->
+
+      <div class="large-9 cell">
+        <label for="confirmPassword">Confirm New Password</label>
+        <input id="confirmPassword"
+        required 
+          name="confirmPassword"
+          #confirmPassword="ngModel"
+          [(ngModel)]="currentUser.confirmPassword" 
+          type="password" 
+          aria-errormessage="newPasswordMatchError" />
+        <div [hidden]="confirmPassword.valid || confirmPassword.pristine"
+          class="form-error"
+          id="newPasswordError">
+          Passwords must match.
+        </div>
+      </div><!-- /cell -->
+    </div><!-- /grid -->
+
+    <div class="btn-cont">
+      <button class="button secondary" type="submit" [disabled]="!changePasswordForm.form.valid">Update</button>
+    </div>
+    </form>
+  </div><!-- /Parent cell -->
+</div><!-- /Parent grid -->

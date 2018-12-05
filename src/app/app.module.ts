@@ -1,10 +1,10 @@
 ﻿import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-// used to create fake backend
+// used to create fake backend - Remove once we hook into AD Global
 import { fakeBackendProvider } from './helpers';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -28,6 +28,7 @@ import { MyaccountComponent } from './components/myaccount/myaccount.component'
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
+        FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
         NgxFoundationModule,
@@ -42,7 +43,8 @@ import { MyaccountComponent } from './components/myaccount/myaccount.component'
         RegisterComponent,
         HeaderComponent,
         FooterComponent,
-        DialogBodyComponent,
+        DialogBodyComponent
+,
         MyaccountComponent
     ],
     providers: [

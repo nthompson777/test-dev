@@ -11,6 +11,10 @@ body.login {
   display: block;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 .introjs-helperNumberLayer {
   background: $primary-color;
 }
