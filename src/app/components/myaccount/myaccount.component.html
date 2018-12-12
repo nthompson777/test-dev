@@ -18,7 +18,6 @@
             aria-errormessage="usernameError" />
           <div [hidden]="username.valid || username.pristine"
             class="form-error"
-            [ngClass]="{ 'is-invalid-input': submitted && fLogin.username.errors }"
             id="usernameError">
             User ID is required
           </div>
@@ -89,17 +88,17 @@
     <form (ngSubmit)="onSubmit()" #changePasswordForm="ngForm">
     <div class="grid-x">
       <div class="large-9 cell">
-        <label for="currentPassword">Verify Current Password</label>
-        <input id="currentPassword"
+        <label for="password">Verify Current Password</label>
+        <input id="password"
           required 
-          name="currentPassword"
-          #currentPassword="ngModel"
-          [(ngModel)]="currentUser.currentPassword" 
+          name="password"
+          #password="ngModel"
+          [(ngModel)]="currentUser.password" 
           type="password" 
-          aria-errormessage="currentPasswordError" />
-        <div [hidden]="currentPassword.valid || currentPassword.pristine"
+          aria-errormessage="passwordError" />
+        <div [hidden]="password.valid || password.pristine"
           class="form-error"
-          id="currentPasswordError">
+          id="passwordError">
           Password is incorrect
         </div>
       </div><!-- /cell -->
@@ -110,9 +109,10 @@
           required 
           name="newPassword"
           #newPassword="ngModel"
-          [(ngModel)]="currentUser.newPassword" 
+          [(ngModel)]="currentUser.newPassword"
           type="password"  
           aria-errormessage="newPasswordError" />
+
         <div [hidden]="newPassword.valid || newPassword.pristine"
           class="form-error"
           id="newPasswordError">
@@ -143,7 +143,7 @@
         required 
           name="confirmPassword"
           #confirmPassword="ngModel"
-          [(ngModel)]="currentUser.confirmPassword" 
+          [(ngModel)]="currentUser.confirmPassword"
           type="password" 
           aria-errormessage="newPasswordMatchError" />
         <div [hidden]="confirmPassword.valid || confirmPassword.pristine"

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="cf5293dcb1410cc6ba0b2bd8fba0ad500baebf3d" datatype="html">
+        <source>QTS Client Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/login/login.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="83c4d4d764d2e2725ab8e919ec16ac400e1f290a" datatype="html">
+        <source>User ID</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/login/login.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c32ef07f8803a223a83ed17024b38e8d82292407" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/login/login.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ebac2c9e645053d93676d5f3365f853719ad5b5d" datatype="html">
+        <source> Forgot User ID?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/login/login.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6255a8674662e55d6ccc3ad46cc1dd0dd6394d75" datatype="html">
+        <source>Forgot Password?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/login/login.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bb997a44e21bea5f92acd0559d75782bf73b34be" datatype="html">
+        <source>Login <x id="TAG_IMG" ctype="image" equiv-text="&lt;img/&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/login/login.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cfc2f436ec2beffb042e7511a73c89c372e86a6c" datatype="html">
+        <source>Register</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/login/login.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="313cfb09a1e85ace3efbd7a9c0fef3ac5e890be3" datatype="html">
+        <source>
+        SmartRail Power Tools
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/main-nav/main-nav.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bfddfb72a409905b29533e0b7a49fede752d5fa5" datatype="html">
+        <source>
+        My
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/main-nav/main-nav.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="29881a45dafbe5aa05cd9d0441a4c0c2fb06df92" datatype="html">
+        <source>Account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/main-nav/main-nav.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bb694b49d408265c91c62799c2b3a7e3151c824d" datatype="html">
+        <source>Logout</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/main-nav/main-nav.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="59a7f73e4d91f3a894db0c6db8a567feda481439" datatype="html">
+        <source>Take a Tour</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/portal/portal.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9514f6a6b5147b891ec2d9ac1b524fc1b405d89e" datatype="html">
+        <source>See a quick overview on what matters most for your business.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/portal/portal.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1801bfa6ba6eb7a02fd61bafb37e35f5d0aebfdc" datatype="html">
+        <source>Learn More</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/portal/portal.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -3,10 +3,10 @@
     <div class="header-circle">
       <fa-icon [icon]="faUserLock" size="2x"></fa-icon>
     </div>
-    <h3 class="header">QTS Client Login</h3>
+    <h3 i18n>QTS Client Login</h3>
     <app-callout-message></app-callout-message>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
-      <label for="username" [ngClass]="{ 'is-invalid-label': submitted && fLogin.username.errors }">User ID</label>
+      <label for="username" [ngClass]="{ 'is-invalid-label': submitted && fLogin.username.errors }" i18n>User ID</label>
       <input id="username" 
         type="text" 
         formControlName="username" 
@@ -20,7 +20,7 @@
           User ID is required
         </span>
       </span>
-      <label for="password" [ngClass]="{ 'is-invalid-label': submitted && fLogin.password.errors }">Password</label>
+      <label for="password" [ngClass]="{ 'is-invalid-label': submitted && fLogin.password.errors }" i18n>Password</label>
       <input id="password" 
         type="password" 
         formControlName="password" 
@@ -34,11 +34,11 @@
         </span>
       </span>
       <div class="text-right">
-        <small><a (click)="openIdModal(forgotId)"> Forgot User ID?</a> &nbsp; | &nbsp; <a (click)="openPassModal(forgotPass)">Forgot Password?</a></small>
+        <small><a (click)="openIdModal(forgotId)" i18n> Forgot User ID?</a> &nbsp; | &nbsp; <a (click)="openPassModal(forgotPass)" i18n>Forgot Password?</a></small>
       </div>
       <div class="btn-cont-alt">
-        <button [disabled]="loading" class="button secondary">Login <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /></button>
-        <button routerLink="/register" class="button primary hollow">Register</button>
+        <button [disabled]="loading" class="button secondary"><span i18n>Login</span> <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /></button>
+        <button routerLink="/register" class="button primary hollow" i18n>Register</button>
       </div>
     </form>
   </div><!-- /cell -->

@@ -17,33 +17,18 @@
             <span class="line"></span>
           </div>
           <div class="appName">
-            <a routerLink="/portal" title="{{appTitle}} Home">
+            <a routerLink="/portal" title="QTS Home">
               <div class="mainlogo">
               </div>
-              {{appTitle}}
             </a>
           </div>
         </div>
         <nav class="top-bar-right hide-for-small-only">
-          <ul class="menu">
-            <!-- <li *ngFor="let link of links" 
-              routerLinkActive="active"  
-              [routerLinkActiveOptions]="{ exact: true }">
-              <a [routerLink]="link.path" (click)="offcanvas.hide()">{{ link.text }}</a>
-            </li> -->
-            <li><a routerLink="/portal"><fa-icon [icon]="faToolbox" size="sm" [fixedWidth]="true"></fa-icon>&nbsp; SmartRail Power Tools</a></li>
-            <li><a routerLink="/myaccount"><fa-icon [icon]="faUserCircle" size="sm" [fixedWidth]="true"></fa-icon>&nbsp; <span *ngIf="hasFirstName">{{currentUser.firstName}}'s</span><span *ngIf="!hasFirstName">My</span> Account</a></li>
-            <li><a (click)="logout()"><fa-icon [icon]="faSignOutAlt" size="sm" [fixedWidth]="true"></fa-icon>&nbsp; Logout</a></li>
-          </ul>
+          <app-main-nav></app-main-nav>
         </nav>
         
         <nav [offcanvas]="isOffcanvas" class="off-canvas position-left" id="offCanvasMenu" aria-hidden="true" #offcanvas="bs-offcanvas"> 
-          <ul class="menu vertical">
-            <li class="main-title">Main Menu</li>
-            <li><a routerLink="/portal"><fa-icon [icon]="faToolbox" size="sm" [fixedWidth]="true"></fa-icon>&nbsp; SmartRail Power Tools</a></li>
-            <li><a routerLink="/myaccount"><fa-icon [icon]="faUserCircle" size="sm" [fixedWidth]="true"></fa-icon>&nbsp; <span *ngIf="hasFirstName">{{currentUser.firstName}}'s</span><span *ngIf="!hasFirstName">My</span> Account</a></li>
-            <li><a (click)="logout()"><fa-icon [icon]="faSignOutAlt" size="sm" [fixedWidth]="true"></fa-icon>&nbsp; Logout</a></li> 
-          </ul>
+          <app-main-nav></app-main-nav> 
           <button class="close-button" aria-label="Close Menu" aria-controls="offCanvasMenu" type="button" (click)="offcanvas.hide()">
             <span aria-hidden="true">×</span>
           </button>

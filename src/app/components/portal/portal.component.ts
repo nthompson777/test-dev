@@ -6,6 +6,7 @@ import { first } from 'rxjs/operators';
 import { User } from '../../models/user';
 import { UserService, AuthenticationService } from '../../services';
 import { faMapSigns } from '@fortawesome/pro-solid-svg-icons';
+import {I18n} from '@ngx-translate/i18n-polyfill';
 
 @Component({
     selector: 'app-portal',

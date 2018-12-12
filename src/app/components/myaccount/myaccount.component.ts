@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormsModule  } from '@angular/forms';
 import { User } from '../../models/user';
 import { Subscription } from 'rxjs';
 import { UserService, AuthenticationService } from '../../services';
@@ -34,10 +34,14 @@ export class MyaccountComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       emailAddress: ['', Validators.required],
-      /* password: ['', [Validators.required, Validators.minLength(6)]] */
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      newPassword: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
     });
   }
 
+  // convenience getter for easy access to form fields
+  get basicInfoFormG() { return this.basicInfoForm.controls; }
 
 
 

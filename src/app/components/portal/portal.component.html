@@ -3,7 +3,7 @@
     <h3 class="heading" id="heading1" data-intro="Another step.">QTS Portal</h3>
   </div>
   <div class="small-6 cell text-right">
-    <button class="button secondary tiny hollow" (click)="startTour()"><fa-icon [icon]="faMapSigns" [fixedWidth]="true" size="lg"></fa-icon> Take a Tour</button>
+    <button class="button secondary tiny hollow" (click)="startTour()"><fa-icon [icon]="faMapSigns" [fixedWidth]="true" size="lg"></fa-icon> <span i18n>Take a Tour</span></button>
   </div><!-- /cell-->
 </div><!-- /grid -->
 
@@ -16,8 +16,8 @@
       </div>
       <div class="medium-6 small-order-1 medium-order-2 cell promo-text">
         <h3>SmartData<sup>&trade;</sup></h3>
-        <p>See a quick overview on what matters most for your business.</p>
-        <button class="button secondary tiny">Learn More</button>
+        <p i18n>See a quick overview on what matters most for your business.</p>
+        <button class="button secondary tiny" i18n>Learn More</button>
       </div>
     </div>
 
@@ -28,6 +28,6 @@
     <a href="{{app.link}}" class="app-link {{app.styleName}}">
       <fa-icon [icon]="app.icon" [fixedWidth]="true" size="4x" class="align-middle"></fa-icon> 
     </a>
-    <a href="{{app.link}}" class="portalAppName" [innerHtml]="app.fullName"></a>
+    <a href="{{app.link}}" class="portalAppName">{{ app.fullName }}</a>
   </div><!-- /cell -->  
 </div><!-- /grid -->

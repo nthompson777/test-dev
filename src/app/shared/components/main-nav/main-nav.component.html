@@ -1,0 +1,40 @@
+<ul class="menu">
+  <li>
+    <a routerLink="/portal">
+      <fa-icon 
+        [icon]="faToolbox" 
+        size="sm" 
+        [fixedWidth]="true">
+      </fa-icon>&nbsp; 
+      <span i18n>
+        SmartRail Power Tools
+      </span>
+    </a>
+  </li>
+  <li>
+    <a routerLink="/myaccount">
+      <fa-icon 
+        [icon]="faUserCircle" 
+        size="sm" 
+        [fixedWidth]="true">
+      </fa-icon>&nbsp; 
+      <span *ngIf="hasFirstName">
+        {{currentUser.firstName}}'s
+      </span>
+      <span *ngIf="!hasFirstName" i18n>
+        My
+      </span> 
+      <span i18n>Account</span>
+    </a>
+  </li>
+  <li>
+    <a (click)="logout()">
+      <fa-icon 
+        [icon]="faSignOutAlt" 
+        size="sm" 
+        [fixedWidth]="true">
+      </fa-icon>&nbsp; 
+      <span i18n>Logout</span>
+    </a>
+  </li>
+</ul>

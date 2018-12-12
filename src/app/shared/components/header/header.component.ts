@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef, Renderer } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthenticationService } from '../../../services/authentication.service';
 import { User } from '../../../models/user';
-import { faToolbox, faUserCircle, faSignOutAlt } from '@fortawesome/pro-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -11,24 +10,21 @@ import { faToolbox, faUserCircle, faSignOutAlt } from '@fortawesome/pro-solid-sv
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  @ViewChild('main') main: ElementRef;
   currentUser: User;
   isOffcanvas = true;
   hasFirstName = true;
-  faToolbox = faToolbox;
-  faUserCircle = faUserCircle;
-  faSignOutAlt = faSignOutAlt;
-
 
   constructor(
+      private renderer: Renderer,
       private router: Router,
       private authenticationService: AuthenticationService
   ) {
       this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
-  logout() {
-      this.authenticationService.logout();
-      this.router.navigate(['/login']);
+  skipLink() {
+    this.renderer.invokeElementMethod(this.main.nativeElement, 'focus');
   }
 
 }
