@@ -104,10 +104,12 @@
               "browserTarget": "customer-portal:build:production"
             },
             "en": {
-              "browserTarget": "customer-portal:build:en"
+              "browserTarget": "customer-portal:build:en",
+              "aot": false
             },
             "es": {
-              "browserTarget": "customer-portal:build:es"
+              "browserTarget": "customer-portal:build:es",
+              "aot": true
             }
           }
         },

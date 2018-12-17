@@ -6,7 +6,7 @@
         size="sm" 
         [fixedWidth]="true">
       </fa-icon>&nbsp; 
-      <span i18n>
+      <span i18n="@@MainNav_textSRpowerTools">
         SmartRail Power Tools
       </span>
     </a>
@@ -21,10 +21,10 @@
       <span *ngIf="hasFirstName">
         {{currentUser.firstName}}'s
       </span>
-      <span *ngIf="!hasFirstName" i18n>
+      <span *ngIf="!hasFirstName" i18n="@@MainNav_textMy">
         My
       </span> 
-      <span i18n>Account</span>
+      <span i18n="@@MainNav_textAccount">Account</span>
     </a>
   </li>
   <li>
@@ -34,7 +34,7 @@
         size="sm" 
         [fixedWidth]="true">
       </fa-icon>&nbsp; 
-      <span i18n>Logout</span>
+      <span i18n="@@MainNav_textLogout">Logout</span>
     </a>
   </li>
 </ul>

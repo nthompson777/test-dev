@@ -6,7 +6,7 @@ import { first } from 'rxjs/operators';
 import { User } from '../../models/user';
 import { UserService, AuthenticationService } from '../../services';
 import { faMapSigns } from '@fortawesome/pro-solid-svg-icons';
-import {I18n} from '@ngx-translate/i18n-polyfill';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 
 @Component({
     selector: 'app-portal',
@@ -19,6 +19,7 @@ export class PortalComponent implements OnInit, OnDestroy {
     currentUserSubscription: Subscription;
     faMapSigns = faMapSigns;
     users: User[] = [];
+    i18n: I18n;
 
     // Array of apps to loop through, styles associated with Sass map on portal.component.scss
     apps: any = [
@@ -88,16 +89,17 @@ export class PortalComponent implements OnInit, OnDestroy {
     ];
 
     constructor(
+        i18n: I18n,
         sanitizer: DomSanitizer,
         private authenticationService: AuthenticationService,
         private userService: UserService
     ) {
-        this.apps = this.apps.map((app: any) => ({
+       /*  this.apps = this.apps.map((app: any) => ({
             link: app.link,
             styleName: app.styleName,
             icon: app.icon,
             fullName: sanitizer.sanitize(SecurityContext.HTML, app.fullName)
-        }));
+        })); */
         this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
             this.currentUser = user;
         });
