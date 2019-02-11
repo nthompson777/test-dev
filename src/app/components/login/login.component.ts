@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AlertService, AuthenticationService } from '../../services';
 import { faUserLock } from '@fortawesome/pro-solid-svg-icons';
+import { faArrowAltCircleLeft } from '@fortawesome/pro-regular-svg-icons';
 
 @Component({
     selector: 'app-login',
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
     returnUrl: string;
     modalRef: BsModalRef;
     faUserLock = faUserLock;
+    faArrowAltCircleLeft = faArrowAltCircleLeft;
 
     constructor(
         private formBuilder: FormBuilder,

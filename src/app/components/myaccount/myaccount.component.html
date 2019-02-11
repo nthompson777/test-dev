@@ -1,5 +1,16 @@
-<h3 i18n="@@Myaccount_title">My Account</h3>
-<app-callout-message></app-callout-message>
+<div class="grid-x grid-margin-x">
+  <div class="small-12 cell">
+    <p>
+      <a routerLink="/portal">
+        <fa-icon [icon]="faArrowAltCircleLeft" [fixedWidth]="true"></fa-icon> Back to Previous Page 
+      </a><br>
+    </p>
+  </div><!-- /cell -->
+  <div class="small-12 cell">
+    <h3 i18n="@@Myaccount_title">My Account</h3>
+    <app-callout-message></app-callout-message>
+  </div><!-- /cell -->
+</div><!-- /grid -->
 
 <div class="grid-x grid-margin-x">
   <div class="medium-6 cell">
@@ -76,6 +87,7 @@
       </div><!-- /grid -->
       <div class="btn-cont">
         <button class="button secondary" type="submit" [disabled]="!basicInfoForm.form.valid">Update</button>
+        <button class="button primary" type="reset" (click)="revert()">Clear Form</button>
         <p>
           Debugging: {{currentUser.username}} {{currentUser.firstName}} {{currentUser.lastName}} {{currentUser.emailAddress}}
         </p>
@@ -156,6 +168,7 @@
 
     <div class="btn-cont">
       <button class="button secondary" type="submit" [disabled]="!changePasswordForm.form.valid">Update</button>
+      <button class="button primary" type="reset" (click)="revert()">Clear Form</button>
     </div>
     </form>
   </div><!-- /Parent cell -->

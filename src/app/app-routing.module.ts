@@ -3,6 +3,8 @@
 import { SubpageLayoutComponent } from './shared/components/subpage-layout/subpage-layout.component';
 import { LoginComponent } from './components/login/login.component';
 import { MyaccountComponent } from './components/myaccount/myaccount.component';
+import { ReactiveDemoComponent } from './components/reactive-demo/reactive-demo.component';
+import { UserTypeComponent } from './components/user-type/user-type.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -11,12 +13,6 @@ const appRoutes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-    /* children: [
-      {
-        path: 'login',
-        loadChildren: './modules/login/login.module#LoginModule'
-      },
-    ] */
   },
   // Subpage routes with header and footer
  {
@@ -31,6 +27,16 @@ const appRoutes: Routes = [
       {
         path: 'myaccount',
         component: MyaccountComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'reactive-demo',
+        component: ReactiveDemoComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'user-type',
+        component: UserTypeComponent,
         canActivate: [AuthGuard]
       },
     ]

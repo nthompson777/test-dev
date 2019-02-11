@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormsModule  } from '@angular/forms
 import { User } from '../../models/user';
 import { Subscription } from 'rxjs';
 import { UserService, AuthenticationService } from '../../services';
+import { faArrowAltCircleLeft } from '@fortawesome/pro-regular-svg-icons';
 
 @Component({
   selector: 'app-myaccount',
@@ -16,6 +17,7 @@ export class MyaccountComponent implements OnInit {
   submitted = false;
   currentUser: User;
   currentUserSubscription: Subscription;
+  faArrowAltCircleLeft = faArrowAltCircleLeft;
 
   constructor(
     private formBuilder: FormBuilder,

@@ -1,0 +1,114 @@
+<h3>Reactive Forms Demo</h3>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <div class="grid-x grid-margin-x">
+    <div class="medium-4 cell">
+      <label for="email">
+        Email
+      </label>
+      <input 
+        type="email"
+        placeholder="Email Address"
+        required
+        formControlName="email"
+        aria-errormessage="emailError">
+      <span class="form-error" *ngIf="(email.dirty || email.touched) && email.invalid && email.errors.required">
+        Email is required.
+      </span>
+      <span class="form-error" *ngIf="email.dirty && email.invalid && (email.invalidEmail && email.touched)">
+        Value has to be a valid email address.
+      </span>
+    </div>
+
+    <div class="medium-4 cell">
+      <label for="username">
+        User ID
+      </label>
+      <input id="username" 
+        type="text" 
+        placeholder="User ID Here"
+        maxlength="25" 
+        formControlName="username" 
+        required 
+        aria-errormessage="usernameError" />
+        <span class="form-error" *ngIf="(username.dirty || username.touched) && username.invalid && username.errors.required">
+          User name is required.
+        </span>
+        <span class="form-error" *ngIf="username.dirty && username.invalid && (username.errors.pattern || username.errors.minlength && username.touched)">
+          Must be a valid user name between 5 - 25 characters with a combination of letters and at least one number.
+        </span>
+      <span *ngFor="let validation of account_validation_messages.username">
+        <span class="form-error" id="usernameError" *ngIf="(username.dirty || username.touched) && username.invalid">
+        </span>
+      </span> 
+    </div>
+
+    <div class="medium-4 cell">
+      <label for="route">
+        Route #
+      </label>
+      <input
+        type="text"
+        placeholder="Route Number"
+        required
+        formControlName="route"
+        [typeaheadMinLength]="3"
+        minlength="5"
+        maxlength="10"
+        [typeahead]="routeNumber"
+        [(ngModel)]="selectedRouteNumber"
+        (typeaheadNoResults)="typeaheadNoResultsML($event)">
+        <span class="form-error" *ngIf="(route.dirty || route.touched) && route.invalid && route.errors.required">
+          This is a required field.
+        </span>
+        <span class="form-error" *ngIf="(route.dirty || route.touched) && route.invalid && route.errors.invalidNumber">
+          Value has to be a number.
+        </span>
+        <div class="callout alert" *ngIf="noResultML">No Results Found</div>
+        <!-- <span class="form-error"
+          *ngFor="let validation of account_validation_messages.phone"
+          id="phoneError">
+        </span> -->
+    </div>
+    <!-- <div class="medium-4 cell">
+      <label for="money">
+        Money Formatting
+      </label>
+      <div class="input-group">
+        <span class="input-group-label">$</span>
+        <input class="input-group-field"
+          type="number"
+          placeholder="Money Formatting"
+          required
+          formControlName="money">
+        <span class="form-error" *ngIf="(account.dirty || account.touched) && account.invalid && account.errors.required">
+          This is a required field
+        </span>
+        <span class="form-error" *ngIf="(account.dirty || account.touched) && account.invalid && account.errors.invalidNumber">
+          Value has to be a number.
+        </span>
+      </div>
+    </div> -->
+    
+    <div class="medium-4 cell">
+      <label>State of Origin
+        <input [(ngModel)]="stateOfOrigin"
+          [typeahead]="states"
+          placeholder="Enter a U.S. State"
+          formControlName="stateOfOriginField"
+          [typeaheadMinLength]="3"
+          type="text"
+          placeholder="U.S. States Only"
+          (typeaheadNoResults)="typeaheadNoStateML($event)"
+          required>
+      </label>
+      <span class="form-error" *ngIf="(stateOfOriginField.dirty || stateOfOriginField.touched) && stateOfOriginField.invalid && stateOfOriginField.errors.required">
+          This is a required field.
+        </span>
+        <div class="callout alert" *ngIf="noStateResultML">No Results Found</div>
+    </div>
+
+    <div class="small-12 cell btn-cont">
+      <button class="button secondary" type="reset" (click)="revert()">Reset Form Fields</button>
+    </div>
+  </div>
+</form>

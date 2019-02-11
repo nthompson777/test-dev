@@ -1,4 +1,31 @@
-﻿<div class="grid-x align-middle loginBG">
+﻿<a (click)="skipLink()" 
+  href 
+  onclick="return false;" 
+  class="show-on-focus" 
+  accesskey="k">
+  Skip to Content
+</a>
+<div class="grid-container-fluid">
+  <div class="grid-x">
+    <div class="small-12 cell">
+      <span #top></span>
+      <header class="top-bar">
+        <div class="top-bar-left">
+          <div class="appName">
+            <a href="http://www.qts.com" title="QTS Home">
+              <div class="mainlogo">
+              </div>
+            </a>
+          </div>
+        </div>
+        <nav class="top-bar-right hide-for-small-only">
+        </nav>
+      </header>
+    </div><!-- / Parent cell -->
+  </div><!-- /grid-x -->
+</div><!-- /grid-container-fluid -->
+
+<div class="grid-x align-middle loginBG">
   <div class="small-11 medium-6 large-4 xlarge-3 cell login-box">
     <div class="header-circle">
       <fa-icon [icon]="faUserLock" size="2x"></fa-icon>
@@ -37,8 +64,11 @@
         <small><a (click)="openIdModal(forgotId)" i18n="@@Login_ForgotId"> Forgot User ID?</a> &nbsp; | &nbsp; <a (click)="openPassModal(forgotPass)" i18n="@@Login_ForgotPass">Forgot Password?</a></small>
       </div>
       <div class="btn-cont-alt">
+        <a href="http://www.qts.com" class="clear button primary">
+          <fa-icon [icon]="faArrowAltCircleLeft" [fixedWidth]="true"></fa-icon> Back to Home Page 
+        </a>
         <button [disabled]="loading" class="button secondary"><span i18n="@@Login_LoginBtn">Login</span> <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /></button>
-        <button routerLink="/register" class="button primary hollow">Register (Temporary)</button>
+        <!-- <button routerLink="/register" class="button primary hollow">Register (Temporary)</button> -->
       </div>
     </form>
   </div><!-- /cell -->
@@ -105,3 +135,4 @@
       Phone at 1-800-443-2599 or 804-550-5430.<br></small>
     </p> -->  
 </ng-template>
+<app-footer></app-footer>

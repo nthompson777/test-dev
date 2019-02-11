@@ -19,15 +19,153 @@
         <p i18n="@@Portal_FeaturedBannerText">See a quick overview on what matters most for your business.</p>
         <button class="button secondary tiny" i18n="@@Portal_FeaturedBannerButton">Learn More</button>
       </div>
-    </div>
-
+    </div><!-- /grid --> 
   </div><!-- /cell -->
-  <div class="medium-1 show-for-medium cell"></div><!--  Spacer due to For Loop below -->
+
+  <div class="medium-1 show-for-medium cell"></div><!--  Empty div Spacer due to For Loop below -->
 
   <div class="small-6 medium-3 large-2 cell app-block" *ngFor="let app of apps">
     <a href="{{app.link}}" class="app-link {{app.styleName}}">
       <fa-icon [icon]="app.icon" [fixedWidth]="true" size="4x" class="align-middle"></fa-icon> 
     </a>
     <a href="{{app.link}}" class="portalAppName">{{ app.fullName }}</a>
-  </div><!-- /cell -->  
-</div><!-- /grid -->
+  </div>
+
+
+  <!-- <div class="small-6 medium-3 large-2 cell app-block">
+    <a href="#" class="app-link srw">
+      <fa-icon [icon]="['fas', 'train']" [fixedWidth]="true" size="4x" class="align-middle"></fa-icon> 
+    </a>
+    <a href="#" class="portalAppName" i18n="@@Portal_srw">SmartRail Web</a>
+  </div>
+
+  <div class="small-6 medium-3 large-2 cell app-block">
+    <a href="#" class="app-link data-exchange">
+      <fa-icon [icon]="['fas', 'database']" [fixedWidth]="true" size="4x" class="align-middle"></fa-icon> 
+    </a>
+    <a href="#" class="portalAppName" i18n="@@Portal_data-exchange">Data Exchange Terminal and EDI Router</a>
+  </div>
+
+  <div class="small-6 medium-3 large-2 cell app-block">
+    <a href="#" class="app-link demurrage">
+      <fa-icon [icon]="['fas', 'clock']" [fixedWidth]="true" size="4x" class="align-middle"></fa-icon> 
+    </a>
+    <a href="#" class="portalAppName" i18n="@@Portal_demurrage">Demurrage</a>
+  </div>
+
+  <div class="small-6 medium-3 large-2 cell app-block">
+    <a href="#" class="app-link detention">
+      <fa-icon [icon]="['fas', 'clock']" [fixedWidth]="true" size="4x" class="align-middle"></fa-icon> 
+    </a>
+    <a href="#" class="portalAppName" i18n="@@Portal_detention">Detention</a>
+  </div>
+
+  <div class="small-6 medium-3 large-2 cell app-block">
+    <a href="#" class="app-link equipment-maint">
+      <fa-icon [icon]="['fas', 'wrench']" [fixedWidth]="true" size="4x" class="align-middle"></fa-icon> 
+    </a>
+    <a href="#" class="portalAppName" i18n="@@Portal_equipment-maint">Equipment Maintenance Manager</a>
+  </div>
+
+  <div class="small-6 medium-3 large-2 cell app-block">
+    <a href="#" class="app-link web-billing">
+      <fa-icon [icon]="['fas', 'file-invoice-dollar']" [fixedWidth]="true" size="4x" class="align-middle"></fa-icon> 
+    </a>
+    <a href="#" class="portalAppName" i18n="@@Portal_web-billing">Web Billing</a>
+  </div>
+
+  <div class="small-6 medium-3 large-2 cell app-block">
+    <a href="#" class="app-link rate-manager">
+      <fa-icon [icon]="['fas', 'hand-holding-usd']" [fixedWidth]="true" size="4x" class="align-middle"></fa-icon> 
+    </a>
+    <a href="#" class="portalAppName" i18n="@@Portal_rate-manager">Rate Manager</a>
+  </div>
+
+  <div class="small-6 medium-3 large-2 cell app-block">
+    <a href="#" class="app-link customer-maint">
+      <fa-icon [icon]="['fas', 'users-cog']" [fixedWidth]="true" size="4x" class="align-middle"></fa-icon> 
+    </a>
+    <a href="#" class="portalAppName" i18n="@@Portal_customer-maint">Customer Maintenance</a>
+  </div>
+
+  <div class="small-6 medium-3 large-2 cell app-block">
+    <a href="#" class="app-link filler">
+      <fa-icon [icon]="['fas', 'users-cog']" [fixedWidth]="true" size="4x" class="align-middle"></fa-icon> 
+    </a>
+    <a href="#" class="portalAppName" i18n="@@Portal_filler">ABC XYZ</a>
+  </div>  -->
+</div>
+
+
+<!-- <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <div class="grid-x grid-margin-x">
+    <div class="medium-4 cell">
+      <label for="username">
+        User ID
+      </label>
+      <input id="username" 
+        type="text" 
+        placeholder="User ID Here"
+        maxlength="25" 
+        formControlName="username" 
+        required 
+        aria-errormessage="usernameError" />
+        <span class="form-error" *ngIf="(username.dirty || username.touched) && username.invalid && username.errors.required">
+          User name is required.
+        </span>
+        <span class="form-error" *ngIf="username.dirty && username.invalid && (username.errors.pattern || username.errors.minlength && username.touched)">
+          Must be a valid user name between 5 - 25 characters.
+        </span>
+      <span *ngFor="let validation of account_validation_messages.username">
+        <span class="form-error" id="usernameError" *ngIf="(username.dirty || username.touched) && username.invalid">
+        </span>
+      </span> 
+    </div>
+
+     <div class="medium-4 cell">
+      <label for="email">
+        Email
+      </label>
+      <input 
+        type="email"
+        placeholder="Email Address"
+        required
+        formControlName="email"
+        aria-errormessage="emailError">
+      <span class="form-error" *ngIf="(email.dirty || email.touched) && email.invalid && email.errors.required">
+        Email is required.
+      </span>
+      <span class="form-error" *ngIf="email.dirty && email.invalid && (email.invalidEmail && email.touched)">
+        Value has to be a valid email address.
+      </span>
+    </div>
+
+    <div class="medium-4 cell">
+      <label for="phone">
+        Phone
+      </label>
+      <input
+        type="tel"
+        placeholder="Phone Number"
+        required
+        formControlName="phone"
+        value="{{AsYouType}}">
+        <span *ngIf="(phone.dirty || phone.touched) && phone.invalid && phone.errors.required">
+          <span *ngFor="let validation of account_validation_messages.phone"
+          id="phoneError"></span>
+        </span>
+        <span class="form-error" *ngIf="(phone.dirty || phone.touched) && phone.invalid && phone.errors.invalidNumber">
+          Value has to be a number.
+        </span>
+        <span class="form-error"
+          *ngFor="let validation of account_validation_messages.phone"
+          id="phoneError">
+        </span>
+    </div>
+
+    <div class="small-6 cell btn-cont">
+      <button class="button primary" type="submit" [disabled]="!contactForm.valid">Save</button>
+      <button class="button secondary" type="reset" (click)="revert()">Revert</button>
+    </div>
+  </div>
+</form> -->

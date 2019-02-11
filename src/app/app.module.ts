@@ -3,8 +3,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import es from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(es);
 
-// used to create fake backend - Remove once we hook into AD Global
+// used to create fake backend - Remove once we hook into Global or AD
 import { fakeBackendProvider } from './helpers';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -25,7 +28,10 @@ import { DialogBodyComponent } from './shared/modal/dialog-body/dialog-body.comp
 import { MyaccountComponent } from './components/myaccount/myaccount.component';
 
 // Import the service
-import { I18n, MISSING_TRANSLATION_STRATEGY } from '@ngx-translate/i18n-polyfill';
+import { I18n, MISSING_TRANSLATION_STRATEGY } from '@ngx-translate/i18n-polyfill';;
+import { UserTypeComponent } from './components/user-type/user-type.component'
+;
+import { ReactiveDemoComponent } from './components/reactive-demo/reactive-demo.component';
 declare const require; // Use the require method provided by webpack
 export const translations = require(`raw-loader!../locale/messages.es.xlf`);
 
@@ -50,12 +56,14 @@ export const translations = require(`raw-loader!../locale/messages.es.xlf`);
         MainNavComponent,
         FooterComponent,
         DialogBodyComponent,
-        MyaccountComponent
-    ],
+        MyaccountComponent,
+        UserTypeComponent,
+        ReactiveDemoComponent    ],
     providers: [
         {provide: TRANSLATIONS, useValue: translations},
         {provide: TRANSLATIONS_FORMAT, useValue: 'xlf'},
-        {provide: LOCALE_ID, useValue: 'es'},
+        {provide: LOCALE_ID, useValue: 'en-EN'},
+        {provide: LOCALE_ID, useValue: 'es-ES'},
         {provide: MISSING_TRANSLATION_STRATEGY, useValue: MissingTranslationStrategy.Ignore},
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
